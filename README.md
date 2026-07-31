@@ -1,19 +1,59 @@
-<<<<<<< HEAD
-# ledger-api
+# Dodo Payments Security Assessment
 
 Payments microservice for tokenising PANs and serving transaction metadata.
-Deployed on Kubernetes in the `payments` namespace.
 
 ## Endpoints
 
-| Method | Path            | Description                          |
-|--------|-----------------|--------------------------------------|
-| GET    | `/health`       | Liveness check                       |
-| POST   | `/tokenize`     | `{"pan": "..."}` → opaque token      |
-| GET    | `/transactions` | Recent transaction records           |
-| POST   | `/import`       | Import a YAML configuration blob     |
-| GET    | `/fetch?url=`   | Fetch a remote resource by URL       |
-=======
-# dodo-payments-assignment
-Tassk - 1 assignment
->>>>>>> 2856eda78b5d59985d9235157793bbb328a7981a
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/health` | Liveness check |
+| POST | `/tokenize` | `{"pan": "..."}` → opaque token |
+| GET | `/transactions` | Recent transaction records |
+| POST | `/import` | Import a YAML configuration blob |
+| GET | `/fetch?url=` | Fetch a remote resource by URL |
+
+---
+
+## Repository Structure
+
+- **app/** – Application source code and Dockerfile
+- **deploy/** – Kubernetes manifests
+- **gatekeeper/** – OPA Gatekeeper policies
+- **istio/** – Istio configuration
+- **sealedsecret.yaml** – Bitnami Sealed Secret
+- **kind-config.yaml** – Kind cluster configuration
+
+---
+
+## Task 1 – Secure CI/CD
+
+- GitHub Actions
+- Semgrep
+- Gitleaks
+- Trivy
+- Cosign
+- SLSA Provenance
+
+---
+
+## Task 2 – Kubernetes Security
+
+- ServiceAccount & RBAC
+- SecurityContext
+- Gatekeeper
+- Sealed Secrets
+
+---
+
+## Task 3 – Service Mesh & Zero Trust
+
+- Istio
+- STRICT mTLS
+- AuthorizationPolicy
+- Kubernetes NetworkPolicy
+
+**Verified:**
+
+- Authorized workload → HTTP 200
+- Unauthorized workload → HTTP 403
+
