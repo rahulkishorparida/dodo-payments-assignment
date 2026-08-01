@@ -25,6 +25,13 @@ Payments microservice for tokenising PANs and serving transaction metadata.
 
 ---
 
+## Repositories
+
+- **Application Repository:** https://github.com/<your-user>/ledger-api-assignment
+- **GitOps Repository:** https://github.com/<your-user>/dodo-payments-gitops
+
+---
+
 ## Task 1 – Secure CI/CD
 
 - GitHub Actions
@@ -42,6 +49,12 @@ Payments microservice for tokenising PANs and serving transaction metadata.
 - SecurityContext
 - Gatekeeper
 - Sealed Secrets
+- A separate GitOps repository (`dodo-payments-gitops`) is configured as the source of truth for Kubernetes  manifests.
+
+ArgoCD is configured with:
+
+- Automated Sync
+- Self Heal
 
 ---
 
@@ -52,7 +65,7 @@ Payments microservice for tokenising PANs and serving transaction metadata.
 - AuthorizationPolicy
 - Kubernetes NetworkPolicy
 
-**Verified:**
+Verified:
 
 - Authorized workload → HTTP 200
 - Unauthorized workload → HTTP 403
