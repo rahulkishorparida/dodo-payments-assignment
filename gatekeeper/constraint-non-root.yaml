@@ -3,7 +3,13 @@ kind: K8sNonRoot
 metadata:
   name: disallow-root
 spec:
+  enforcementAction: deny
   match:
+    excludedNamespaces:
+      - argocd
+      - kube-system
+      - gatekeeper-system
+      - istio-system
     kinds:
       - apiGroups: ["apps"]
         kinds: ["Deployment"]
