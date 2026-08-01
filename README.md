@@ -94,4 +94,10 @@ Expected output:
 {"status":"ok"}
 ```
 
+## Screenshots
+
+- ArgoCD Application (Healthy / Synced)
+- Gatekeeper policy enforcement
+- Istio mTLS verification
+- AuthorizationPolicy (HTTP 200 / HTTP 403)
 
