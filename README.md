@@ -27,8 +27,11 @@ Payments microservice for tokenising PANs and serving transaction metadata.
 
 ## Repositories
 
-- **Application Repository:** https://github.com/<your-user>/ledger-api-assignment
-- **GitOps Repository:** https://github.com/<your-user>/dodo-payments-gitops
+Application Repository:
+https://github.com/rahulkishorparida/ledger-api-assignment
+
+GitOps Repository:
+https://github.com/rahulkishorparida/dodo-payments-gitops
 
 ---
 
@@ -49,7 +52,7 @@ Payments microservice for tokenising PANs and serving transaction metadata.
 - SecurityContext
 - Gatekeeper
 - Sealed Secrets
-- A separate GitOps repository (`dodo-payments-gitops`) is configured as the source of truth for Kubernetes  manifests.
+- A separate GitOps repository (`dodo-payments-gitops`) is configured as the source of truth for Kubernetes manifests. ArgoCD continuously monitors this repository and automatically synchronizes changes to the cluster.
 
 ArgoCD is configured with:
 
@@ -69,4 +72,26 @@ Verified:
 
 - Authorized workload → HTTP 200
 - Unauthorized workload → HTTP 403
+
+
+## Verify Deployment
+
+After the application is deployed (either manually or through ArgoCD), start port forwarding:
+
+```bash
+kubectl port-forward service/ledger-api 8080:8080 -n payments
+```
+
+In another terminal, verify the application is healthy:
+
+```bash
+curl http://localhost:8080/health
+```
+
+Expected output:
+
+```json
+{"status":"ok"}
+```
+
 
