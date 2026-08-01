@@ -17,8 +17,8 @@ spec:
 
       containers:
         - name: ledger-api
-          image: ledger-api:v1
-          imagePullPolicy: IfNotPresent
+          image: rahulkishorparida/ledger-api:v1
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 8080
